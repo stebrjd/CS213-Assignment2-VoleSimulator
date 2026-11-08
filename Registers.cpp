@@ -1,19 +1,25 @@
-// Date: 6 Oct 1973
-#include "Registers.h"
+#include "registers.h"
 
-Registers::Registers() {
-    clear();
+Registers::Registers(){
+
+clear();
 }
+uint8_t Registers::read(int i)const{
 
-uint8_t Registers::read(int i) const {
-    return regs[i];
+    if(i >= 0 && i<16){
+        return regs[i];
+    }
+    return 0 ;
+
 }
-
-void Registers::write(int i, uint8_t v) {
-    regs[i] = v;
+void Registers ::write(int i ,uint8_t val){
+if(i >= 0 && i<16){
+         regs[i] = val;
+    }
 }
+void Registers::clear(){
 
-void Registers::clear() {
-    for (int i = 0; i < 16; i++)
-        regs[i] = 0;
+    for(int i = 0 ; i< 16 ; i++){
+        regs[i] = 0 ;
+    }
 }
