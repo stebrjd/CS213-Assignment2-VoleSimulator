@@ -27,10 +27,8 @@ void Machine::runAll() {
     }
 }
 
-// Resets the machine state
 void Machine::reset() {
     memory.clear();
-    // cpu.reset();
 }
 
 
