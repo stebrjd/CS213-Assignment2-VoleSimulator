@@ -12,12 +12,15 @@ private:
     CPU cpu;
     Memory memory;
     Screen screen;
-    ProgramLoader loader;
+    ProgramLoader loader; 
 
 public:
-    Machine(); 
-    bool loadProgram(const std::string& filename, int startAddress);
-    void step();
+    Machine();
+
+    bool loadProgram(const std::string& file, int startAddr);
+    void setRegister(int r, uint8_t v);
+    void setMemory(int addr, uint8_t v);
+    bool step();
     void runAll();
     void reset();
 
