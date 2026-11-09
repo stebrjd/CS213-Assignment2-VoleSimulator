@@ -9,10 +9,10 @@
 
 class Machine {
 private:
-    CPU cpu;
-    Memory memory;
     Screen screen;
-    ProgramLoader loader; 
+    Memory memory;
+    CPU cpu;
+    ProgramLoader loader;
 
 public:
     Machine();
