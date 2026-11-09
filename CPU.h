@@ -13,9 +13,11 @@ private:
     Alu alu ;
     Instructions IR ;
     uint8_t counter ;
+    Memory* mem;
+    bool halted;
 
 public:
-    CPU();
+    CPU(Memory* memo);
 
     void loadInstructions(uint16_t IRcode);
 
@@ -23,7 +25,10 @@ public:
     uint8_t getPC()const ;
 
     void setPC(uint8_t address) ;
-   
+    uint16_t getIR() const;
+    uint8_t getRegister(int index) const;
+    void setRegister(int index, uint8_t value);
+    bool isHalted() const;
 };
 
 #endif
