@@ -12,7 +12,7 @@ Instructions::Instructions(){
 
 Instructions::Instructions(uint16_t val){
 
-    val = code ;
+    code = val;
 
     opcode = (val >> 12) & 0x0F ;
     x = (val >> 8) & 0x0F ;
