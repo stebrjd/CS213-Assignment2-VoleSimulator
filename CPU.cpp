@@ -12,7 +12,7 @@ void CPU::loadInstructions(uint16_t IRcode){
 void CPU ::excute(){
 
 if (!IR.isvalid()) return ;
-uint8_t x = IR.getOPcode() ;
+uint8_t x = IR.getX();
 uint8_t y =IR.getY() ;
 uint8_t z =IR.getZ() ;
 uint8_t op = IR.getOPcode();
