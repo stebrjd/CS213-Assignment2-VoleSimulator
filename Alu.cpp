@@ -7,7 +7,7 @@
 
 uint8_t Alu::Or(uint8_t val1 , uint8_t val2){
 
-    return val1 || val2 ;
+    return val1 | val2;
 }
 uint8_t Alu::And(uint8_t val1 , uint8_t val2){
 
