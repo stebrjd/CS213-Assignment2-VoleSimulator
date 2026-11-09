@@ -17,7 +17,7 @@ Instructions::Instructions(uint16_t val){
     opcode = (val >> 12) & 0x0F ;
     x = (val >> 8) & 0x0F ;
     y = (val >> 4) & 0x0F ;
-    x = (val) & 0x0F ;
+    z = val & 0x0F;
 } 
 bool Instructions::isvalid()const{
 
