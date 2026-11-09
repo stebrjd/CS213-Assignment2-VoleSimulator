@@ -1,7 +1,7 @@
 #ifndef CPU_H
 #define CPU_H
 #include <cstdint> 
-#include "registers.h"
+#include "Registers.h"
 #include "Alu.h"
 #include "instructions.h"
 #include "Memory.h"
