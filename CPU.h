@@ -22,6 +22,7 @@ public:
     void loadInstructions(uint16_t IRcode);
 
     void excute() ;
+    void reset();
     uint8_t getPC()const ;
 
     void setPC(uint8_t address) ;

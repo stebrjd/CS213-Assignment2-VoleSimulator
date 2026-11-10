@@ -1,8 +1,6 @@
 #include "CPU.h"
 
-CPU::CPU(Memory* memo){
-    counter = 0 ;
-    mem = memo ;
+CPU::CPU(Memory* memo) : IR(), counter(0), mem(memo), halted(false) {
 }
 
 void CPU::loadInstructions(uint16_t IRcode){
@@ -11,7 +9,12 @@ void CPU::loadInstructions(uint16_t IRcode){
 }
 void CPU ::excute(){
 
-if (!IR.isvalid()) return ;
+if (halted) return;
+if (!IR.isvalid()) {
+    halted = true;
+    return;
+}
+
 uint8_t x = IR.getX();
 uint8_t y =IR.getY() ;
 uint8_t z =IR.getZ() ;
@@ -72,10 +75,19 @@ if (reg.read(x) == reg.read(0) ){
 break ;
 
 case 12 :
+halted = true;
 break ;
 
 }
 }
+
+void CPU::reset() {
+    reg.clear();
+    IR = Instructions();
+    counter = 0;
+    halted = false;
+}
+
 uint8_t CPU::getPC() const{
 
     return counter ;
@@ -84,4 +96,20 @@ void CPU::setPC(uint8_t address){
 
     counter = address ;
 
+}
+
+uint16_t CPU::getIR() const {
+    return IR.getCode();
+}
+
+uint8_t CPU::getRegister(int index) const {
+    return reg.read(index);
+}
+
+void CPU::setRegister(int index, uint8_t value) {
+    reg.write(index, value);
+}
+
+bool CPU::isHalted() const {
+    return halted;
 }
